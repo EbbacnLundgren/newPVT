@@ -13,10 +13,14 @@ public class SearchStringInFile {
           
            while ((line = reader.readLine()) != null) {
                lineNumber++;
+               String[] words = line.split("\\s+");
               
-               if (line.contains(pattern)) {
-                   System.out.println("Line " + lineNumber);
-               }
+               for (String word : words) {
+                if (word.equals(pattern)) {
+                    System.out.println(word + " " + "Line " + lineNumber);
+                    break; 
+                }
+            }
            }
        } catch (FileNotFoundException e) {
            System.out.println("File not found: " + fileName);
